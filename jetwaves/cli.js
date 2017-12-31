@@ -1,0 +1,57 @@
+/**
+ * Created by jetwaves on 2017/12/31.
+ */
+"use strict";
+var mysqlDumpImporter = require('./index.js');
+const os= require('os');
+var args = require('green').args;      //  node cli.js -t test.sql   =>  args =  { t: 'test.sql' }
+var moment = require('moment');
+
+var help = args['-help'];
+if(help){
+    console.log(' =====================================================================================  ');
+    console.log(' Tool used to Import a huge SQL dump file ( eg. >5Gb ) into A Local Database with stream reader( with less consume of memory )');
+    console.log('   ');
+    console.log('   ');
+    console.log('   CLI Param as following: ');
+    console.log('   -u      :     OPTIONAL:  database user name.  ( root    by default ) ');
+    console.log('   -p      :     OPTIONAL:  database password.   ( null    by default )');
+    console.log('   -d      :     OPTIONAL:  database name.       ( test    by default )');
+    console.log('   -s      :     OPTIONAL:  sql file to import.  ( src.sql by default )');
+    console.log('   --help  :     OPTIONAL:  To See this help message ');
+    console.log('   ');
+    console.log('   Exemple:    node cli.js -u root -p password -d database_file_name -s sql_file_name.sql  ');
+    console.log(' =====================================================================================  ');
+    return ;
+}
+
+console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);
+console.log('┏---- INFO: ----- start [args] -----');console.dir(args);console.log('┗---- INFO: -----  end  [args] -----')
+var filename = 'src.sql';
+var targetDatabase = 'test';
+var dbConnection = {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: targetDatabase
+};
+
+if(args.u)  dbConnection.user = args.u.toString();
+if(args.p)  dbConnection.password = args.p.toString();
+if(args.d)  {
+    targetDatabase = args.d.toString();
+    dbConnection.database = targetDatabase;
+}
+if(args.s)  filename = args.s.toString();
+
+console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);
+console.log('┏---- INFO: ----- start [dbConnection  001 ] -----');console.dir(dbConnection);console.log('┗---- INFO: -----  end  [dbConnection] -----');
+console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('\tINFO:\tfilename = '+filename );
+
+
+mysqlDumpImporter.importFromSQL(filename, dbConnection, targetDatabase)
+    .then(function(res){
+        console.log('   ---- LOG: ' + __filename + os.EOL + '        success  res   = ');  console.dir(res);
+    }).catch(function(err){
+
+    });
