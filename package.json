@@ -1,6 +1,6 @@
 {
   "name": "mysql-stream-importer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A tool who uses a stream reader to import huge SQL dump scripts into MySQL database",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,9 @@
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/jetwaves/mysqlStreamImporter/issues"
+  },
+  "bin": {
+    "simport": "./jetwaves/cli"
   },
   "homepage": "https://github.com/jetwaves/mysqlStreamImporter#readme",
   "dependencies": {
