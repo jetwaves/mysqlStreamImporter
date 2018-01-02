@@ -1,6 +1,6 @@
 # mysqlStreamImporter
 
-An importer who uses a stream reader to import huge SQL dump scripts into MySQL database 
+A nodejs importer who uses a stream reader to import huge SQL dump scripts into MySQL database 
 
 
 
@@ -16,6 +16,7 @@ An importer who uses a stream reader to import huge SQL dump scripts into MySQL 
 
 ## Here are console responses during the command running :
 
+```javascript
 2017/12/31 19:14:09                             \vhosts\mysqlStreamImporter\jetwaves\cli
 ┏---- INFO: ----- start [args] -----
 { s: 'sqlDumpFileName.sql',
@@ -52,4 +53,5 @@ An importer who uses a stream reader to import huge SQL dump scripts into MySQL 
 ┗---- INFO: -----  end  [timeElapse] -----
    ---- LOG: \vhosts\mysqlStreamImporter\jetwaves\cli
         success  res   = 398
+```
 
