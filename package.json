@@ -1,11 +1,10 @@
 {
   "name": "mysql-stream-importer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A tool who uses a stream reader to import huge SQL dump scripts into MySQL database",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm link"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
