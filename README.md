@@ -3,6 +3,8 @@
 A nodejs importer who uses a stream reader to import huge SQL dump scripts into MySQL database 
 
 
+## 0. Installation:
+`npm install -g mysql-stream-importer`
 
 ## 1. Exemple to use:
 
