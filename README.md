@@ -8,11 +8,11 @@ A nodejs importer who uses a stream reader to import huge SQL dump scripts into 
 
 ## 1. Exemple to use:
 
-`$node cli -u root -p password -d database_file_name -f sql_file_name.sql`
+`$node cli -u root -p password -d database_file_name -s sql_file_name.sql`
 
 ## 2. A CLI has been added to facilitate usage:
 
-`$simport -u root -p password -d database_file_name -f sql_file_name.sql`
+`$simport -u root -p password -d database_file_name -s sql_file_name.sql`
 
 ------
 
