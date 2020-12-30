@@ -17,6 +17,7 @@ if(help){
     console.log('   CLI Param as following: ');
     console.log('   -u      :     OPTIONAL:  database user name.  ( root    by default ) ');
     console.log('   -p      :     OPTIONAL:  database password.   ( null    by default )');
+    console.log('   -port   :     OPTIONAL:  database port.       ( 3306    by default )');
     console.log('   -d      :     OPTIONAL:  database name.       ( test    by default )');
     console.log('   -s      :     OPTIONAL:  sql file to import.  ( src.sql by default )');
     console.log('   --help  :     OPTIONAL:  To See this help message ');
@@ -34,11 +35,13 @@ var dbConnection = {
     host: 'localhost',
     user: 'root',
     password: '',
+    port: 3306,
     database: targetDatabase
 };
 
 if(args.u)  dbConnection.user = args.u.toString();
 if(args.p)  dbConnection.password = args.p.toString();
+if(args.port)  dbConnection.port = args.port.toString();
 if(args.d)  {
     targetDatabase = args.d.toString();
     dbConnection.database = targetDatabase;

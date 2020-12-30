@@ -20,6 +20,7 @@ var tool = {
 
 // var dbConnection = { host: 'localhost'       , user: 'root'  , password: '123456'    , database: 'database_name'        };
 function importFromSqlWithStreamReader(fileFullName, dbConnectOptions, targetDbName){
+    console.log('           dbConnectOptions  = ');  console.dir(dbConnectOptions);
     console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('\tINFO:\tStarting Import from file: '+fileFullName );
     return new Promise(function(resolve, reject) {
         //================================ Prepare Import: ========================================
